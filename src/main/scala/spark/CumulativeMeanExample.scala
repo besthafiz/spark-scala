@@ -20,7 +20,7 @@ object CumulativeMeanExample {
     // Create DataFrame with index
     val df = data.zipWithIndex.map { case (value, index) => (index, value) }
       .toDF("id", "value")
-
+    df.show(false)
     // Define window (ordered by id)
     val windowSpec = Window.orderBy("id")
       .rowsBetween(Window.unboundedPreceding, Window.currentRow)
